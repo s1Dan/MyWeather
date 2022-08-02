@@ -109,7 +109,8 @@
                 android:src="@drawable/ic_baseline_search_24"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/tvMaxMin" />
+                app:layout_constraintTop_toTopOf="@+id/tvMaxMin"
+                tools:ignore="SpeakableTextPresentCheck,SpeakableTextPresentCheck" />
 
             <ImageButton
                 android:id="@+id/imageButton2"
@@ -132,8 +133,8 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/card_blue_bg"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/cardView2"
+        app:layout_constraintStart_toStartOf="@id/cardView2"
         app:layout_constraintTop_toBottomOf="@+id/cardView2">
 
         <com.google.android.material.tabs.TabItem
