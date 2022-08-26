@@ -71,13 +71,12 @@ class MainFragment : Fragment() {
 
     private fun updateCurrentCard() = with(binding) {
         model.LiveDataCurrent.observe(viewLifecycleOwner) {
-            val maxMinTemp = "${it.maxTemp}Cº/${it.minTemp}Cº"
+            val maxMinTemp = "${it.maxTemp}ºC / ${it.minTemp}ºC"
             tvData.text = it.time
             tvCity.text = it.city
-            tvCurrentTemp.text = it.currentTemp
+            tvCurrentTemp.text = it.currentTemp.ifEmpty { maxMinTemp }
             tvCondition.text = it.condition
-            tvMaxMin.text = maxMinTemp
-
+            tvMaxMin.text = if(it.currentTemp.isEmpty()) "" else maxMinTemp
             Picasso.get().load("https:" + it.imageURL).into(imWeather)
 
         }
@@ -129,46 +128,28 @@ class MainFragment : Fragment() {
         parseCurrentData(mainObject, list[0])
     }
 
-    private fun parseDays(mainObject: JSONObject): List<WeatherModel> {
+    private fun parseDays(mainObject: JSONObject): List<WeatherModel>{
         val list = ArrayList<WeatherModel>()
         val daysArray = mainObject.getJSONObject("forecast")
             .getJSONArray("forecastday")
-
-        val name = mainObject.getJSONObject("location")
-            .getString("name")
-        for (i in 0 until daysArray.length()) {
+        val name =  mainObject.getJSONObject("location").getString("name")
+        for (i in 0 until daysArray.length()){
             val day = daysArray[i] as JSONObject
             val item = WeatherModel(
-
-                //name
                 name,
-
-                //day
-                day.getString("day"),
-
-                //text
-                day.getJSONObject("day")
-                    .getJSONObject("condition").getString("text"),
-
-                // current temp
-            "",
-                // max temp
-                day.getJSONObject("day")
-                    .getString("maxtemp_c"),
-
-                // min temp
-                day.getJSONObject("day")
-                    .getString("mintemp_c"),
-
-                // image URl
-                day.getJSONObject("day")
-                    .getJSONObject("condition").getString("icon"),
-
-                //hours
+                day.getString("date"),
+                day.getJSONObject("day").getJSONObject("condition")
+                    .getString("text"),
+                "",
+                day.getJSONObject("day").getString("maxtemp_c").toFloat().toInt().toString(),
+                day.getJSONObject("day").getString("mintemp_c").toFloat().toInt().toString(),
+                day.getJSONObject("day").getJSONObject("condition")
+                    .getString("icon"),
                 day.getJSONArray("hour").toString()
             )
             list.add(item)
         }
+        model.LiveDataList.value = list
         return list
     }
 
