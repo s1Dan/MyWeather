@@ -44,8 +44,8 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:fontFamily="@font/aubrey"
-                android:text="29/07/2022 18:36"
-                android:textSize="16sp"
+                android:text="@string/data_time"
+                android:textSize="18sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -62,7 +62,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/aubrey"
-                android:text="Moscow"
+                android:text="@string/location"
                 android:textColor="@color/white"
                 android:textSize="26sp"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -74,7 +74,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/aubrey"
-                android:text="20ºC"
+                android:text="@string/temp_current"
                 android:textColor="@color/white"
                 android:textSize="70sp"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -86,7 +86,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/aubrey"
-                android:text="Sunny"
+                android:text="@string/condition"
                 android:textColor="@color/white"
                 android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -99,7 +99,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="1dp"
                 android:fontFamily="@font/aubrey"
-                android:text="25ºC/10ºC"
+                android:text="@string/temp_max_min"
                 android:textColor="@color/white"
                 android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -149,12 +149,12 @@
         <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Hours" />
+            android:text="@string/hours" />
 
         <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Days" />
+            android:text="@string/days" />
 
     </com.google.android.material.tabs.TabLayout>
 

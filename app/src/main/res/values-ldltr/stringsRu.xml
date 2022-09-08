@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Моя погода</string>
+    <string name="hello_blank_fragment">Привет пустой фрагмент</string>
+    <string name="empty">Пусто</string>
+    <string name="temp_current">20ºC</string>
+    <string name="location">Москва</string>
+    <string name="data_time">29/07/2022 18:36</string>
+    <string name="condition">Солнечно</string>
+    <string name="temp_max_min">25ºC/10ºC</string>
+    <string name="hours">По часам</string>
+    <string name="days">По дням</string>
+    <string name="sunny_new">Солнечно</string>
+
+</resources>
